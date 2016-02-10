@@ -8,8 +8,8 @@ This plugin provides the [OmniAuth SAML strategy](https://github.com/omniauth/om
 
 Add the following entries to your `Gemfile.plugins` in your OpenProject root directory:
 
-    gem 'openproject-auth_plugins', git: 'git@github.com:finnlabs/openproject-auth_plugins', branch: 'stable'
-    gem "openproject-auth_saml", git: 'git@github.com:finnlabs/openproject-auth_saml', branch: 'stable'
+    gem 'openproject-auth_plugins', git: 'https://github.com/finnlabs/openproject-auth_plugins', branch: 'stable'
+    gem "openproject-auth_saml", git: 'https://github.com/finnlabs/openproject-auth_saml', branch: 'stable'
 
 ## Requirements
 
