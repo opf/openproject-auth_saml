@@ -17,9 +17,9 @@ module OpenProject
 
       config.after_initialize do
         # Automatically update the openproject user whenever their info change in the upstream identity provider
-        OpenProject::OmniAuth::Authorization.after_login do |user, auth_hash, _context|
+        OpenProject::OmniAuth::Authorization.after_login do |user, auth_hash, context|
           # see https://github.com/opf/openproject/blob/dev/app/controllers/concerns/omniauth_login.rb#L148
-          user.update_attributes _context.send(:omniauth_hash_to_user_attributes, auth_hash)
+          user.update_attributes context.send(:omniauth_hash_to_user_attributes, auth_hash)
         end
       end
 
