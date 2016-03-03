@@ -29,7 +29,7 @@ module OpenProject
           providers = YAML::load(File.open(settings)).symbolize_keys
           strategy :saml do
             providers.values.map do |h|
-              h[:openproject_attribute_map] = Proc.new { |auth| { login: auth[:uid] } }
+              h[:openproject_attribute_map] = Proc.new { |auth| { login: auth[:uid], admin: (auth.info['admin'].to_s.downcase == "true") } }
               h.symbolize_keys
             end
           end
