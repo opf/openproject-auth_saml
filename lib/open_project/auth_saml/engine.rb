@@ -15,6 +15,14 @@ module OpenProject
         auth_saml/**
       )
 
+      config.after_initialize do
+        # Automatically update the openproject user whenever their info change in the upstream identity provider
+        OpenProject::OmniAuth::Authorization.after_login do |user, auth_hash, _context|
+          # see https://github.com/opf/openproject/blob/dev/app/controllers/concerns/omniauth_login.rb#L148
+          user.update_attributes _context.send(:omniauth_hash_to_user_attributes, auth_hash)
+        end
+      end
+
       register_auth_providers do
         settings = Rails.root.join('config', 'plugins', 'auth_saml', 'settings.yml')
         if settings.exist?
