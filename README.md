@@ -34,11 +34,13 @@ with the following contents:
       assertion_consumer_service_url: "consumer_service_url"
       issuer: "issuer"
       idp_sso_target_url: "idp_sso_target_url"
-      idp_sso_target_url_runtime_params:
-        original_request_param: :mapped_idp_param
-      idp_cert: "-----BEGIN CERTIFICATE-----\n...-----END CERTIFICATE-----"
       idp_cert_fingerprint: "E7:91:B2:E1:..."
-      name_identifier_format: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+      attribute_statements:
+        email: ['mailPrimaryAddress']
+        name: ['gecos']
+        first_name: ['givenName']
+        last_name: ['sn']
+        admin: ['openproject-isadmin']
 
 The plugin simply passes all options to omniauth-saml. See [their configuration
 documentation](https://github.com/omniauth/omniauth-saml#usage) for further
