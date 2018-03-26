@@ -13,6 +13,7 @@ module OpenProject
 
       assets %w(
         auth_saml/**
+        auth_provider-saml.png
       )
 
       config.after_initialize do
