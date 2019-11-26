@@ -25,7 +25,7 @@ To add your own SAML strategy provider(s), create the following settings file (r
 	
 with the following contents:
 
-    your-provider-name:
+    saml:
       name: "your-provider-name"
       display_name: "My SAML provider"
       # Use the default SAML icon
